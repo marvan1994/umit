@@ -1,0 +1,1 @@
+web: sh setup.sh && streamlit run umit.py --global.dataFrameSerialization="legacy"
