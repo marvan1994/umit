@@ -57,7 +57,7 @@ def show():
 
         df = pd.read_excel(path_umit/ pathlib.Path('umit_'+sub+'.xlsx'), dtype = str)
         df.fillna('', inplace=True)
-        st.dataframe(df, use_container_width=True)
+        st.dataframe(df)
 
         if 'umit' not in st.session_state:
              st.session_state.umit = []
