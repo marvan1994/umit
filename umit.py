@@ -47,18 +47,17 @@ def show():
 
     def umit_add(subject_name,subject_info,rec_umits):
 
-        rec = st.checkbox('Показывать только рекомендованные умиты')
-
+        #rec = st.checkbox('Показывать только рекомендованные умиты')
+        rec = False
         sub = subject_name[0:3]
-
-        recomended = rec_umits[subject_name].split(',')
-
+        #recomended = rec_umits[subject_name].split(',')
+        recomended = []
         # if rec == True:
         #     st.markdown(recomended)
 
         df = pd.read_excel(path_umit/ pathlib.Path('umit_'+sub+'.xlsx'), dtype = str)
         df.fillna('', inplace=True)
-        st.dataframe(df)
+        st.dataframe(df, use_container_width=True)
 
         if 'umit' not in st.session_state:
              st.session_state.umit = []
@@ -120,7 +119,7 @@ def show():
 
                 #st.checkbox(f'{umit} ({df[umit_columns[section_names.index(section)], section]})')
 
-    with open('umit_info.json', 'r') as f:
+    with open('umit_info_spec.json', 'r') as f:
         umit_info = json.loads(f.read())
     with open('recomended_umits.json', 'r') as f:
         rec_umits = json.loads(f.read())
@@ -136,12 +135,12 @@ def show():
     subject_names = umit_info.keys()
 
     subject = st.sidebar.selectbox('Выберите предмет', [''] + list(subject_dict.keys()))
-    degree = st.sidebar.radio('Выберите направление', ['ЕГЭ', 'ОГЭ'])
+    #degree = st.sidebar.radio('Выберите направление', ['ЕГЭ', 'ОГЭ'])
+    degree = ''
     degree_dict = {'ЕГЭ': 'ege', 'ОГЭ': 'oge'}
 
     try:
-        subject_name = subject_dict[subject] + '_' + degree_dict[degree]
-
+        subject_name = subject_dict[subject]
         if subject_name in subject_names:
 
             st.markdown(f'##### Умиты по предмету {subject} {degree}')

@@ -14,7 +14,7 @@ path = Path('.')
 
 def main_umit_info_add(subject_info, subject_name):
 
-    with open(r'umit_info.json', 'r') as f:
+    with open(r'umit_info_spec.json', 'r') as f:
 
         main_dict = json.loads(f.read())
 
