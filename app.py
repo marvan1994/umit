@@ -18,7 +18,6 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
-            section {background-color:#F2D3EB;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
@@ -116,7 +115,7 @@ def show():
     try:
         subject_name = subject_dict[subject]+'_'+degree_dict[degree]
         if subject_name in subject_names:
-
+            st.warning('Обратите внимание, это программа для подтем, а не умитов')
             st.markdown(f'##### Подтемы по предмету {subject} {degree}')
 
             subject_info = subtheme_info[subject_name]
