@@ -23,7 +23,7 @@ speakers = ['Артур Шарафиев', 'Анастасия Малова', '�
        'Мария Вельф', 'Анастасия Аддамс', 'Софья Вайб']
 
 
-df = pd.read_csv('subtheme_import.csv').rename(columns = {'Спикер':'speaker', 'Раздел':'section', 'Подтема':'subtheme','Айди подтемы':'subtheme_id'})
+df = pd.read_csv('subtheme_import_v2.csv').rename(columns = {'Спикер':'speaker', 'Раздел':'section', 'Подтема':'subtheme','Айди подтемы':'subtheme_id'})
 df = df[['speaker','section','subtheme','subtheme_id']].drop_duplicates()
 
 main_dict = dict(zip(speakers, ['' for x in range(len(speakers))]))
@@ -39,7 +39,7 @@ for speak in speakers:
 
     main_dict[speak] = subject_info
 
-    with open(r'subtheme_info.json', 'w+') as f:
+    with open(r'subtheme_info_v2.json', 'w+') as f:
 
         json.dump(main_dict,f)
 

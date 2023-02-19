@@ -9,7 +9,7 @@ from load_css import local_css
 import pathlib
 
 st.set_page_config(page_title='Привязка Подтем',
-    page_icon="um.ico",)
+    page_icon="um.ico",layout="wide")
 
 local_css("style.css")
 
@@ -42,8 +42,8 @@ def reset_session():
     st.session_state.subtheme = []
 
 
-df = pd.read_csv('subtheme_import.csv', dtype=str).rename(columns = {'Спикер':'speaker', 'Раздел':'section', 'Подтема':'subtheme','Айди подтемы':'subtheme_id'})
-df = df[['speaker','section', 'subtheme', 'subtheme_id']]
+df = pd.read_csv('subtheme_import_v2.csv', dtype=str).rename(columns = {'Спикер':'speaker', 'Раздел':'section', 'Подтема':'subtheme','Айди подтемы':'subtheme_id'})
+df = df[['speaker','section', 'subtheme', 'subtheme_id','theme_complexity','subtheme_complexity']]
 
 def show():
 
@@ -107,7 +107,7 @@ def show():
 
 
 
-    with open('subtheme_info.json', 'r') as f:
+    with open('subtheme_info_v2.json', 'r') as f:
         subtheme_info = json.loads(f.read())
 
     speaker = st.sidebar.selectbox('Выберите преподавателя', [''] + all_speaker_name)
@@ -119,10 +119,8 @@ def show():
             speaker_info = subtheme_info[speaker]
             subtheme_add(speaker, speaker_info)
     except Exception as e:
-        #print(str(e))
         pass
     show_subtheme()
-
 
 def show_subtheme():
 

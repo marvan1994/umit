@@ -4,7 +4,7 @@ import json
 
 import  os
 
-
+############ НЕ ИСПОЛЬЗОВАТЬ ДЛЯ ПРИЛОЖЕНИЯ ПОДТЕМ #################
 
 allsubs = ['ang_ege', 'ang_oge', 'baz_ege', 'bio_ege', 'bio_oge', 'fiz_ege',
        'geo_ege', 'geo_oge', 'him_ege', 'him_oge', 'inf_ege', 'inf_oge',
