@@ -26,7 +26,7 @@ from pandas.api.types import (
     is_object_dtype,
 )
 
-@@st.experimental_memo
+@st.experimental_memo
 def load_data():
     df = pd.read_csv(file)
     return df
