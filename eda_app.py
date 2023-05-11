@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import streamlit.components.v1 as components
+#import streamlit.components.v1 as components
 from load_css import local_css
 
 
