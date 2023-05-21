@@ -55,7 +55,7 @@ def show():
         # if rec == True:
         #     st.markdown(recomended)
 
-        df = pd.read_excel(path_umit/ pathlib.Path('umit_'+sub+'.xlsx'), dtype = str)
+        df = pd.read_csv(path_umit/ pathlib.Path('umit_'+sub+'.csv'), dtype = str)
         df.fillna('', inplace=True)
         st.dataframe(df)
 

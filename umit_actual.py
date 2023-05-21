@@ -27,7 +27,7 @@ def main_umit_info_add(subject_info, subject_name):
 
 def umit_info_actualisation():
 
-    path = Path('umit_files')
+    path = Path('umit_files_xlsx')
 
 
     for file in path.iterdir():
@@ -35,6 +35,7 @@ def umit_info_actualisation():
         sub = file.name[5:-5]
 
         df = pd.read_excel(file)
+        df.to_csv(str(file.with_suffix('.csv')).replace('_xlsx',''))
         N_sections = sum(1 for x in df.columns[0::2].to_list() if 'Unnamed' not in x)
         section_names = df.columns[0:2*N_sections:2]
         id_columns = df.columns[1:2*N_sections:2]
